@@ -31,10 +31,14 @@ local function preprocess(v, s)
 end
 
 
---- Main
+
 time = computer.uptime()
 simulated = 0
-while true do
+--- Execute one brake upon calling and a train passing
+--- target: stopping point distance
+--- vtar: passing speed
+--- pretarget: Preprocess Distance
+function braker(target, vtar, pretarget)
   _, _, aug, _ = event.pull("ir_train_overhead")
   info = detector.info() --- this may be useless
   consist = detector.consist()
@@ -46,20 +50,20 @@ while true do
       cal = {}
       --- cal.co = info.traction / info.weight / speedRatio * x * x * 100  --- original method 
       --- make cal a table for better compatibility
-      cal.co = consist.total_traction_N / consist.weight_kg/ speedRatio * x * x * 100
+      cal.co = consist.total_traction_N / consist.weight_kg / speedRatio * x * x * 100
+      cal.loco_num = consist.locomotives.n
       print("Weight:",consist.weight_kg)
-      pretarget = 50
       v0 = preprocess(consist.speed_km / speedRatio, pretarget)
       print("Starting Speed:",v0*speedRatio)
 
       --- Find Proper Brake Vaule
       delta = 0
-      target = 100
+      target = target * cal.loco_num
       leftbound = 0
       rightbound = 1
       while true do
         print("Trying:", x)
-        delta = target - callback(cal, v0, 0, 0)
+        delta = target - callback(cal, v0, 0, 0, vtar)
         if delta < 0.05 and delta > -0.05 then
           break
         end
@@ -84,6 +88,13 @@ while true do
       print("Braking")
       controler.setBrake(x)
       simulated = 0
+    else
+      print("Ignore")
     end
   end
+end
+
+--- main function
+while true do
+  braker(100,0,50)
 end
