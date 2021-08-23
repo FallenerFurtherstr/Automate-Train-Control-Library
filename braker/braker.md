@@ -10,7 +10,7 @@ braker(target, vtar, pretarget)
 
 ## How to Use the Script
 First of all, one would need to set up a system like the following picture. Note that the upper computer and the detector at the staring point is not neceesary, and the script should be running at the computer on the other side with a controller and a detector attached.
-![system_setup](/braker/System_Setup.jpg)
+![system_setup](https://github.com/FallenerFurtherstr/Automate-Train-Control-Library/blob/main/braker/System_Setup.png)
 
 Normally, one should choose a preprocessing distance at a range of 20~50 blocks behind the controller, because a distance too large would discourge train from braking at the right spot and introduce wheel-slip bounces, and the one too small would make the train go ahead the controller before the script can give a answer.
 
