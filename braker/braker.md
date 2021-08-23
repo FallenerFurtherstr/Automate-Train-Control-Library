@@ -18,6 +18,10 @@ This script can be a standalone program and can run independly. Or one can seper
 
 ## Notice
 
+- Make sure the braking track is flat and without slope because it isn't calucalating the slope loss. Whether the track can be curved remains untested but I think it can handle the curve.
+
+- NO HAND CAR PASSING!
+
 - For multi-loco consist, one should turn on all the locos to make sure there's enough tractive effort going on.
 
 - For steam locos, it's important to hook up a tender behind and make sure that the chamber is always full of water. Although it cannot solve the problem of huge water loss, at least it's for safe driving. Thus, less accuracy is to be expected when involving steam locos.
