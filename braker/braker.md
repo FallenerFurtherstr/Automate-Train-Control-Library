@@ -20,7 +20,7 @@ This script can be a standalone program and can run independly. Or one can seper
 
 - Make sure the braking track is flat and without slope because it isn't calucalating the slope loss. Whether the track can be curved remains untested but I think it can handle the curve.
 
-- NO HAND CAR PASSING!
+- NO HAND CAR PASSING! And no manaul operation involved when working! (if you want to avoid troubles)
 
 - For multi-loco consist, one should turn on all the locos to make sure there's enough tractive effort going on.
 
