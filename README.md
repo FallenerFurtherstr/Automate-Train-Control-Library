@@ -4,6 +4,8 @@
  Currently there is only one script in the library, that is the auto-braking script. All the script will be managed into respective folders with their own doc.
 
 ## TODO List
+- Auto-braking Script
+    - Support for Long Distance Braking    
 - Auto-accelerating Script
 - Slope-controlling Script
 - Signal Script
